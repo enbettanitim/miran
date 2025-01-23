@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ENBET | İletişim Kanalları</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #000000;
+            background-image: url('arkaplan2.png'); /* Web için arka plan */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            position: relative;
+            flex-wrap: wrap;
+        }
+
+        .banner {
+            width: 300px;
+            height: 1000px;
+            background-color: #000000;
+            border-radius: 12px;
+            overflow: hidden;
+            position: absolute;
+        }
+
+        .banner img {
+            width: 100%;
+            height: auto;
+        }
+
+        .banner-left {
+            top: 0;
+            left: 0;
+        }
+
+        .banner-right {
+            top: 0;
+            right: 0;
+        }
+
+        .content {
+            width: 100%;
+            max-width: 600px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 12px;
+            z-index: 1;
+            background: transparent; /* Şeffaf arka plan */
+            box-shadow: none; /* Box-shadow kaldırıldı */
+            border: none; /* Border kaldırıldı */
+            margin: 20px 0;
+        }
+
+        .logo {
+            width: 130px;
+            height: auto;
+            margin-bottom: 20px;
+        }
+
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+            border: 4px solid #f2ad48;
+            box-shadow: 0 0 10px #f2ad48, 0 0 20px rgba(0, 0, 0, 0.5);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .profile img:hover {
+            box-shadow: 0 0 15px #f2ad48, 0 0 25px rgba(0, 0, 0, 0.7);
+        }
+
+        .profile h1 {
+            font-size: 22px;
+            margin: 10px 0;
+            color: #f2ad48;
+        }
+
+        .bio {
+            font-size: 20px;
+            margin-top: 10px;
+            color: #f2ad48;
+        }
+
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .button {
+            width: 100%;
+            max-width: 400px;
+            padding: 20px;
+            margin: 10px 0;
+            color: white;
+            text-align: left;
+            font-size: 18px;
+            font-weight: bold;
+            text-decoration: none;
+            border: 2px solid #f2ad48;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            background-color: transparent;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .button img {
+            width: 50px;
+            height: 50px;
+            margin-right: 15px;
+        }
+
+        .button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 10px #f2ad48, 0 0 20px #f2ad48, 0 0 30px #f2ad48;
+        }
+
+        .promotion {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #333;
+            border-radius: 10px;
+            text-align: center;
+            color: #f2ad48;
+        }
+
+        .promotion img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .promotion p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #f2ad48;
+        }
+
+        .box-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 119px;
+            height: 68px;
+            background-color: black;
+            border-radius: 8px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .image-gallery {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            width: 100%;
+            max-width: 1280px;
+        }
+
+        .image-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .image-grid img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #f2ad48, 0 0 25px #f2ad48, 0 0 35px #f2ad48;
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                background-image: url('arkaplan3.png'); /* Mobil için farklı arka plan */
+            }
+
+            .main-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .banner {
+                display: none; /* Mobilde banner'ları gizleyelim */
+            }
+
+            .content {
+                width: 100%;
+                padding: 10px;
+                max-width: 100%;
+            }
+
+            .logo {
+                width: 100px;
+                margin-bottom: 15px;
+            }
+
+            .profile img {
+                width: 120px;
+                height: 120px;
+                margin-bottom: 10px;
+            }
+
+            .profile h1 {
+                font-size: 18px;
+            }
+
+            .bio {
+                font-size: 16px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .button {
+                width: 90%; /* Butonları daha dar yapalım */
+                max-width: 350px;
+                padding: 12px;
+                margin: 8px 0;
+                font-size: 16px;
+                text-align: left;
+                font-weight: bold;
+                border: 2px solid #f2ad48;
+                border-radius: 8px;
+                background-color: transparent;
+                display: flex;
+                align-items: center;
+            }
+
+            .button img {
+                width: 40px;
+                height: 40px;
+                margin-right: 10px;
+            }
+
+            .box {
+                width: 100%;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="banner banner-left">
+            <img src="en gif istek reklam hd .gif" alt="Sol Banner GIF">
+        </div>
+        <div class="content">
+            <img src="enbet.png" alt="Logo" class="logo">
+
+            <div class="profile">
+                <img src="oyku.png" alt="Profil Resmi">
+                <h1>ENBET | İletişim Kanalları</h1>
+            </div>
+
+            <div class="bio">
+                <p>ÖYKÜ</p>
+            </div>
+
+            <div class="button-container">
+                <a href="https://gitenbet.click" class="button"><img src="enbet-kare-buton-2.png" alt="Güncel Giriş İkonu">Güncel Giriş</a>
+                <a href="https://www.enbet225.com/tr/?profile=open&account=balance&page=deposit&selectedGroup=all&selectedMethod=FulgurPay&utm_medium=social&utm_source=heylink.me" class="button"><img src="parayatırma.png" alt="Para Yatırma İkonu">Para Yatırma</a>
+                <a href="https://www.enbet225.com/tr/?profile=open&account=balance&page=withdraw&selectedGroup=all&selectedMethod=FulgurPay&utm_medium=social&utm_source=heylink.me" class="button"><img src="çekim.png" alt="Para Çekme İkonu">Para Çekme</a>
+                <a href="https://vue.comm100.com/chatwindow.aspx?siteId=70001438&planId=dd08bfe7-d70d-4b10-866c-0ad504305268&utm_medium=social&utm_source=heylink.me" class="button"><img src="canli-destek.png" alt="Canlı Destek İkonu">Canlı Destek</a>
+                <a href="https://www.enbet225.com/tr/promotions/welcome?utm_medium=social&utm_source=heylink.me" class="button"><img src="promosyonlar.webp" alt="Promosyonlar İkonu">Promosyonlar</a>
+                <a href="https://enbettv.pages.dev/?utm_medium=social&utm_source=heylink.me" class="button"><img src="entv.png" alt="EnTV İkonu">EnTV</a>
+                <a href="https://ennara.me/?utm_medium=social&utm_source=heylink.me" class="button"><img src="beniara.png" alt="Beni Ara İkonu">Beni Ara</a>
+                <a href="https://api.whatsapp.com/send/?phone=%2B573150095710&text&type=phone_number&app_absent=0&utm_medium=social&utm_source=heylink.me" class="button"><img src="wp.png" alt="Whatsapp İkonu">Whatsapp Hattımız</a>
+                <a href="https://twitter.com/enbetcom?utm_medium=social&utm_source=heylink.me" class="button"><img src="twitter.png" alt="Twitter İkonu">Twitter Hesabımız</a>
+                <a href="https://www.youtube.com/@enbetcom?utm_medium=social&utm_source=heylink.me" class="button"><img src="youtube.png" alt="Youtube İkonu">Youtube Kanalımız</a>
+                <a href="https://telegram.me/en724com?utm_medium=social&utm_source=heylink.me" class="button"><img src="telegram.png" alt="Telegram İkonu">Telegram Kanalımız</a>
+                <a href="https://www.instagram.com/enbetcom?utm_medium=social&utm_source=heylink.me" class="button"><img src="instahgram.png" alt="Instagram İkonu">Instagram Hesabımız</a>
+            </div>
+
+            <!-- Yeni Görseller Bölümü -->
+            <div class="image-gallery">
+                <h2 style="color: #f2ad48; text-align: center; margin: 20px 0;">Birbirinden Avantajlı Bonuslar</h2>
+                <div class="image-grid">
+                    <img src="debemebonusu.webp" alt="Görsel 1">
+                    <img src="300hf.png" alt="Görsel 2">
+                    <img src="kayip.png" alt="Görsel 3">
+                    <img src="%5*slot.png" alt="Görsel 4">
+                </div>
+            </div>
+        </div>
+        <div class="banner banner-right">
+            <img src="en gif istek reklam hd .gif" alt="Sağ Banner GIF">
+        </div>
+    </div>
+</body>
+</html>
